@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${institute.instituteCode} != null ? 'Edit Institute' : 'Add Institute'">Institute Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2196F3, #E91E63);
+            color: white;
+        }
+        .form-container {
+            background-color: white;
+            color: #333;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color: white;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/dashboard}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/users}">Manage Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/branches}">Manage Branch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 form-container">
+            <h2 class="text-center mb-4" th:text="${institute.instituteCode} != null ? 'Edit Institute' : 'Add New Institute'">Institute Form</h2>
+
+            <form th:action="@{/admin/institute/save}" th:object="${institute}" method="post">
+                <div class="mb-3">
+                    <label for="instituteCode">Institute Code</label>
+                    <input type="text" th:field="*{instituteCode}" id="instituteCode" class="form-control"
+                           placeholder="Enter Institute Code"
+                           th:readonly="${institute.instituteCode != null}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="name">Institute Name</label>
+                    <input type="text" th:field="*{name}" id="name" class="form-control" placeholder="Enter Institute Name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location">Location</label>
+                    <input type="text" th:field="*{location}" id="location" class="form-control" placeholder="Enter Location" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="region">Region</label>
+                    <input type="text" th:field="*{region}" id="region" class="form-control" placeholder="Enter Region" required>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                    <a th:href="@{/admin/institutes}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

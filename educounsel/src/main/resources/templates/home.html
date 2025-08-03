@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Predict</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">
+            <i class="fa-solid fa-graduation-cap"></i> Campus Predict
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="btn btn-outline-primary me-2" th:href="@{/login}">Login</a></li>
+                <li class="nav-item"><a class="btn btn-primary" href="@{/register}">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="bg-primary text-white text-center py-5" style="background: url('/images/bg.jpg') no-repeat center center / cover;">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Predict Your <br><span class="fw-light">College Success</span></h1>
+        <p class="lead mt-3">Advanced AI-powered platform to predict your college admissions chances and guide your academic journey</p>
+        <div class="d-flex justify-content-center mt-4">
+            <a class="btn btn-light me-3" th:href="@{/start-prediction}">Start Prediction <i class="fa fa-arrow-right ms-2"></i></a>
+            <input type="text" class="form-control w-25" placeholder="Enter Details">
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="bg-light text-dark rounded p-3">
+                    <h4>95%</h4>
+                    <p>Prediction Accuracy</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-light text-dark rounded p-3">
+                    <h4>50K+</h4>
+                    <p>Students Helped</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-light text-dark rounded p-3">
+                    <h4>500+</h4>
+                    <p>Partner Colleges</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-bold">About Campus Predict</h2>
+        <p class="text-center mb-5">We're revolutionizing college admissions with cutting-edge AI technology, helping students make informed decisions about their academic future.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="fw-bold">Empowering Students with Data-Driven Insights</h4>
+                <p>Campus Predict leverages advanced artificial intelligence and comprehensive college data to provide students with accurate admission predictions and personalized recommendations.</p>
+                <p>Our platform analyzes your academic profile, extracurricular activities, test scores, and other relevant factors to calculate your chances of admission to various colleges and universities.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-primary text-white p-4 rounded">
+                    <h5>Why Choose Us?</h5>
+                    <ul>
+                        <li>Proven 95% accuracy rate</li>
+                        <li>Updated in real-time</li>
+                        <li>Trusted by 50,000+ students</li>
+                        <li>Expert guidance included</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Get in Touch</h2>
+        <p class="text-center mb-4">Have questions about your college predictions? Need help with your profile? Our team is here to support your academic journey.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="fw-bold">Let's Connect</h5>
+                <p><i class="fa fa-envelope me-2"></i> Email Us: support@campuspredict.com</p>
+                <p><i class="fa fa-phone me-2"></i> Call Us: +1 (555) 123-4567</p>
+                <p><i class="fa fa-map-marker-alt me-2"></i> Visit Us: 123 Education Ave, San Francisco, CA 94110</p>
+                <div class="bg-primary text-white p-3 rounded mt-4">
+                    <h6>Need Immediate Help?</h6>
+                    <p>Our support team is available 24/7 to assist you with any questions about college predictions and admissions guidance.</p>
+                    <a class="btn btn-light" href="#">Live Chat Support</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" rows="4" id="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="fw-bold">Campus Predict</h5>
+                <p>Empowering students with AI-driven college predictions and personalized guidance for academic success.</p>
+                <div>
+                    <i class="fab fa-facebook me-2"></i>
+                    <i class="fab fa-twitter me-2"></i>
+                    <i class="fab fa-instagram me-2"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li><a class="text-white" href="#">Home</a></li>
+                    <li><a class="text-white" href="#">About</a></li>
+                    <li><a class="text-white" href="#">Contact</a></li>
+                    <li><a class="text-white" href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold">Services</h6>
+                <ul class="list-unstyled">
+                    <li><a class="text-white" href="#">College Prediction</a></li>
+                    <li><a class="text-white" href="#">Academic Guidance</a></li>
+                    <li><a class="text-white" href="#">Career Counseling</a></li>
+                    <li><a class="text-white" href="#">Scholarship Search</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold">Contact Info</h6>
+                <p>123 Education Ave<br>San Francisco, CA 94110</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Email: support@campuspredict.com</p>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <p class="text-center mb-0">&copy; 2024 Campus Predict. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

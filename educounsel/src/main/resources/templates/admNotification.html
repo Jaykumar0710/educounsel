@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f8fb;
+        }
+        .navbar-gradient {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-gradient mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="bi bi-mortarboard-fill"></i> Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-light rounded"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/dashboard}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/users}">Users</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/institutes}">Institutes</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/categories}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/timelines}">Timelines</a></li>
+                <li class="nav-item"><a class="nav-link text-warning fw-bold" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Notifications Section -->
+<div class="container">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">Add New Notification</h5>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/admin/saveNotification}" method="post" enctype="multipart/form-data" th:object="${notification}">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" th:field="*{title}" class="form-control" placeholder="Enter title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea th:field="*{description}" class="form-control" placeholder="Enter description" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Attach File</label>
+                    <input type="file" name="file" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-custom">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">All Notifications</h5>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-bordered align-middle text-center">
+                <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>File</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="notif : ${notifications}">
+                    <td th:text="${notif.id}">1</td>
+                    <td th:text="${notif.title}">Sample Title</td>
+                    <td th:text="${notif.description}">Sample Description</td>
+                    <td>
+                        <a th:if="${notif.filePath != null}" th:href="@{'/uploads/notifications/' + ${notif.filePath}}" target="_blank">
+                            <i class="bi bi-file-earmark-arrow-down"></i> Download
+                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/admin/editNotification/' + ${notif.id}}" class="btn btn-sm btn-primary">Edit</a>
+                        <a th:href="@{'/admin/deleteNotification/' + ${notif.id}}" class="btn btn-sm btn-danger ms-1"
+                           onclick="return confirm('Are you sure you want to delete this notification?');">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

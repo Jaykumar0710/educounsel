@@ -1,0 +1,101 @@
+       body {
+            background-color: #f5f8fc;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background-color: #0d6efd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .navbar-brand,
+        .navbar .nav-link,
+        .navbar .btn {
+            color: #ffffff !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .btn:hover {
+            color: #e2eaff !important;
+        }
+
+        h2 {
+            color: #0d6efd;
+        }
+
+        .btn-success {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #0b5ed7;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #bb2d3b;
+        }
+
+        .table thead {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #e9f1ff;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .search-bar input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .btn-outline-primary {
+            border-color: #0d6efd;
+            color: #0d6efd;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .pagination .page-link {
+            color: #0d6efd;
+            border-radius: 0.375rem;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+        }

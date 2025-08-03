@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeline Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h3 th:text="${timeline.id != null} ? 'Edit Timeline' : 'Add New Timeline'"></h3>
+
+        <form th:action="@{/admin/timelines/save}" th:object="${timeline}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3">
+                <label class="form-label">Event Name</label>
+                <input type="text" th:field="*{eventname}" class="form-control" placeholder="Enter event name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" th:field="*{date}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Type</label>
+                <input type="text" th:field="*{type}" class="form-control" placeholder="e.g., CAP Round, Entrance" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="/admin/timelines" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
